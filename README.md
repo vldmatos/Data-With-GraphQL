@@ -1,2 +1,2 @@
 # Data-With-GraphQL
-Expose GraphQL endpoint with data 
+Expose data with GraphQL
