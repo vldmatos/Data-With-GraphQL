@@ -1,3 +1,4 @@
+using GraphiQl;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -10,6 +11,8 @@ namespace Server
 {
 	public class Startup
 	{
+		private const string routeGraphQL = "/graphql";
+
 		public IConfiguration Configuration { get; }
 
 		public Startup(IConfiguration configuraiton)
@@ -30,12 +33,13 @@ namespace Server
 			}
 
 			application.UseRouting();
+			application.UseGraphiQl(routeGraphQL);
 
 			application.UseEndpoints(endpoints =>
 			{
 				endpoints.MapGet("/", async context =>
 				{
-					await context.Response.WriteAsync("Data with GraphQL");
+					await context.Response.WriteAsync($"Data with GraphQL, playgroud route {routeGraphQL}");
 				});
 			});
 		}
