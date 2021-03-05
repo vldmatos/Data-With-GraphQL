@@ -16,6 +16,8 @@ namespace Server.Services
 
 		public void Start()
 		{
+			_saleService.Clean();
+
 			_saleService.Save(new Sale()
 			{
 				Id = Guid.NewGuid().ToString(),

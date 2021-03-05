@@ -30,10 +30,10 @@ namespace Server.Services
 
 		#region Methods
 
-		public List<Sale> All()
+		public IEnumerable<Sale> All()
 		{
 			return
-			Sales.Find(@event => true)				  
+			Sales.Find(sale => true)				  
 				 .ToList();
 		}			
 
@@ -50,6 +50,11 @@ namespace Server.Services
 		public void Remove(Sale sale) => Sales.DeleteOne(saved => saved.Id == sale.Id);
 
 		public void Remove(string id) => Sales.DeleteOne(sale => sale.Id == id);
+
+		public void Clean()
+		{
+			Sales.DeleteMany(sale => true);
+		}
 
 		#endregion Methods
 	}
