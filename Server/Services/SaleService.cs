@@ -35,8 +35,7 @@ namespace Server.Services
 			return
 			Sales.Find(@event => true)				  
 				 .ToList();
-		}	
-		
+		}			
 
 		public Sale Get(string id) => Sales.Find(sale => sale.Id == id).FirstOrDefault();
 

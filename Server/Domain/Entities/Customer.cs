@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 
 namespace Server.Domain.Entities
 {
-	public class Customer
+	public record Customer
 	{
+		public string Register { get; init; }
+
 		public string FirstName { get; init; }
 
 		public string LastName { get; init; }

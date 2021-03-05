@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
+using Server.Services;
+using Server.Settings;
 
 namespace Server
 {
@@ -18,10 +21,14 @@ namespace Server
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-			
+			services.Configure<DatabaseSettings>(Configuration.GetSection(nameof(DatabaseSettings)));
+
+			services.AddSingleton<IDatabaseSettings>(x => x.GetRequiredService<IOptions<DatabaseSettings>>().Value);
+			services.AddSingleton<SaleService>();
+			services.AddSingleton<LoadService>();
 		}
 
-		public void Configure(IApplicationBuilder application, IWebHostEnvironment environment)
+		public void Configure(IApplicationBuilder application, IWebHostEnvironment environment, LoadService loadService)
 		{
 			if (environment.IsDevelopment())
 			{
@@ -29,7 +36,9 @@ namespace Server
 			}
 
 			application.UseRouting();
-			application.UseGraphiQl();			
+			application.UseGraphiQl();
+
+			loadService.Start();
 		}
 	}
 }
