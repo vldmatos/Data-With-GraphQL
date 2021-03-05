@@ -34,9 +34,9 @@ namespace Server
 			{
 				application.UseDeveloperExceptionPage();
 			}
-
+			
 			application.UseRouting();
-			application.UseGraphiQl();
+			application.UseGraphiQl("/graph");
 
 			loadService.Start();
 		}
