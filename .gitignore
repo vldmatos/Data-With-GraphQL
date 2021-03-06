@@ -3,6 +3,7 @@
 
 # User-specific files
 *.suo
+*.vscode
 *.user
 *.userosscache
 *.sln.docstates
