@@ -12,6 +12,6 @@ namespace Server.Domain
 
 		public Customer Customer { get; init; }
 
-		public IEnumerable<Car> Cars { get; init; }		
+		public IEnumerable<Car> Cars { get; init; }
 	}
 }

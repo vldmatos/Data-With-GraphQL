@@ -1,11 +1,11 @@
 ﻿using GraphQL.Types;
 using Server.Domain.Entities;
 
-namespace Server.Schemas
+namespace Server.Graph.Schemas
 {
-	public class CarSchema : ObjectGraphType<Car>
+	public class CarType : ObjectGraphType<Car>
 	{
-		public CarSchema()
+		public CarType()
 		{
 			Name = nameof(Car);
 

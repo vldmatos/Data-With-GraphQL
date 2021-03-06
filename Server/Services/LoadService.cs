@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Server.Services
 {
-	public class LoadService 
+	public class LoadService
 	{
 		private readonly SaleService _saleService;
 
@@ -23,13 +23,12 @@ namespace Server.Services
 				Id = Guid.NewGuid().ToString(),
 				Date = new DateTime(2021, 2, 1),
 				Customer = new Customer { Register = "A5R3454", FirstName = "Oliver", LastName = "Oniper", Age = 21 },
-				Cars = new List<Car>() 
+				Cars = new List<Car>()
 				{
 					new Car { Model = "Fusion", Color = "White", Manufacturer = "Ford", Year = 2000, Price = 80000 },
 					new Car { Model = "Golf", Color = "Black", Manufacturer = "Volkswagem", Year = 2005, Price = 75000 }
 				}
 			});
-
 
 			_saleService.Save(new Sale()
 			{
@@ -42,7 +41,6 @@ namespace Server.Services
 					new Car { Model = "A45", Color = "Black", Manufacturer = "Mercedes-Benz", Year = 2020, Price = 150000 },
 				}
 			});
-
 
 			_saleService.Save(new Sale()
 			{

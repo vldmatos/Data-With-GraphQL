@@ -1,11 +1,11 @@
 ﻿using GraphQL.Types;
 using Server.Domain.Entities;
 
-namespace Server.Schemas
+namespace Server.Graph.Schemas
 {
-	public class CustomerSchema : ObjectGraphType<Customer>
+	public class CustomerType : ObjectGraphType<Customer>
 	{
-		public CustomerSchema()
+		public CustomerType()
 		{
 			Name = nameof(Customer);
 

@@ -1,10 +1,8 @@
 ﻿using MongoDB.Driver;
 using Server.Domain;
 using Server.Settings;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Server.Services
 {
@@ -33,9 +31,9 @@ namespace Server.Services
 		public IEnumerable<Sale> All()
 		{
 			return
-			Sales.Find(sale => true)				  
+			Sales.Find(sale => true)
 				 .ToList();
-		}			
+		}
 
 		public Sale Get(string id) => Sales.Find(sale => sale.Id == id).FirstOrDefault();
 
