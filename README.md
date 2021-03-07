@@ -24,3 +24,5 @@ Run application as kestrel
 When application start has been load data on mongodb and create collection of **Sales**
 
 That can viewed on GraphiQL
+https://localhost:5001  
+http://localhost:5000  
